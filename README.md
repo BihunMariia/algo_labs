@@ -48,14 +48,12 @@
   2   3
  / \
 4   5
-
-
 Глибина вузла 1 -0, глибина вузла 2 та 3 становить 1, а глибина вузлів 4 та 5 - 2. Сума глибин всіх вузлів дорівнює 0 + 1 + 1 + 2 + 2 = 6.
 
 Функція отримує на вхід корінь бінарного дерева, який має наступний вигляд:
 
 class TreeNode:
-    def __init__(self, value=0, left=None, right=None):
+    def init(self, value=0, left=None, right=None):
         self.value = value
         self.left = left
         self.right = right

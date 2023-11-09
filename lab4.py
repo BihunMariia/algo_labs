@@ -1,18 +1,21 @@
 def find_root_vertex(graph):
-    def dfs(v, visited):
-        visited[v] = True
-        for neighbor in graph[v]:
-            if not visited[neighbor]:
-                dfs(neighbor, visited)
-
     num_vertices = len(graph)
     visited = [False] * num_vertices
 
-    for vertex in range(num_vertices):
-        if not visited[vertex]:
-            dfs(vertex, visited)
+    for start_vertex in range(num_vertices):
+        if not visited[start_vertex]:
+            queue = [start_vertex]
+            while queue:
+                current_vertex = queue[0]
+                visited[current_vertex] = True
+                unvisited_neighbors = [neighbor for neighbor in graph[current_vertex] if not visited[neighbor]]
+                if unvisited_neighbors:
+                    queue.append(unvisited_neighbors[0])
+                else:
+                    queue.pop()
+
             if all(visited):
-                return vertex
+                return start_vertex
 
     return -1
 
